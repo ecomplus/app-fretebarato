@@ -167,8 +167,9 @@ exports.post = ({ appSdk }, req, res) => {
           // parse to E-Com Plus shipping line object
           let shippingResult = []
           if (Array.isArray(data) && data.length) {
+            const { quotes } = data
             shippingResult = [
-              ...data.quotes
+              ...quotes
             ]
           } else if (typeof data === 'object') {
             shippingResult.push(data)
