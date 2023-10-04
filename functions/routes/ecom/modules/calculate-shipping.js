@@ -147,6 +147,7 @@ exports.post = ({ appSdk }, req, res) => {
     }
     return axios.post(
       `https://target.fretebarato.com/ecomplus/price/v1/json/${client_id}`,
+      body,
       {
         headers: {
           Authorization: `Bearer ${token}`,
