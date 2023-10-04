@@ -52,8 +52,6 @@ exports.post = ({ appSdk }, req, res) => {
     const fields = ['service_name', 'service_code']
     for (let i = 0; i < fields.length; i++) {
       if (service[fields[i]]) {
-        console.log(service[fields[i]])
-        console.log(name)
         return service[fields[i]].trim().toUpperCase() === name.toUpperCase()
       }
     }
@@ -173,7 +171,6 @@ exports.post = ({ appSdk }, req, res) => {
           let lowestPriceShipping
           shippingResult.forEach(shipping => {
             const { price, name, service, days, quote_id } = shipping
-            console.log('Forma de envio', JSON.stringify(shipping))
             const shippingLine = {
               from: {
                 ...params.from,
@@ -216,7 +213,6 @@ exports.post = ({ appSdk }, req, res) => {
 
             // change label
             let label = name || service
-            console.log('label de envio', label, name, service)
             if (Array.isArray(appData.services) && appData.services.length) {
               const service = appData.services.find(service => {
                 return service && matchService(service, label)
