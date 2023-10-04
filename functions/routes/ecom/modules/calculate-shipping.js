@@ -166,14 +166,10 @@ exports.post = ({ appSdk }, req, res) => {
           // success response
           // parse to E-Com Plus shipping line object
           let shippingResult = []
-          if (Array.isArray(data) && data.length) {
-            const { quotes } = data
+          const { quotes } = data
             shippingResult = [
               ...quotes
-            ]
-          } else if (typeof data === 'object') {
-            shippingResult.push(data)
-          }
+          ]
           let lowestPriceShipping
           shippingResult.forEach(shipping => {
             const { price, name, service, days, quote_id } = shipping
