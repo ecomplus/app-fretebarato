@@ -141,6 +141,15 @@ const app = {
     /**
      * JSON schema based fields to be configured by merchant and saved to app `data` / `hidden_data`, such as:
 */
+      zip: {
+        schema: {
+          type: 'string',
+          maxLength: 9,
+          pattern: '^[0-9]{5}-?[0-9]{3}$',
+          title: 'CEP de origem'
+        },
+        hide: true
+      },
      token: {
       schema: {
         type: 'string',
@@ -158,6 +167,34 @@ const app = {
         description: 'Solicite Client ID para Frete Barato'
       },
       hide: true
+    },
+    posting_deadline: {
+      schema: {
+        title: 'Prazo de postagem',
+        type: 'object',
+        required: ['days'],
+        additionalProperties: false,
+        properties: {
+          days: {
+            type: 'integer',
+            minimum: 0,
+            maximum: 999999,
+            title: 'Número de dias',
+            description: 'Dias de prazo para postar os produtos após a compra'
+          },
+          working_days: {
+            type: 'boolean',
+            default: true,
+            title: 'Dias úteis'
+          },
+          after_approval: {
+            type: 'boolean',
+            default: true,
+            title: 'Após aprovação do pagamento'
+          }
+        }
+      },
+      hide: false
     },
     additional_price: {
       schema: {
