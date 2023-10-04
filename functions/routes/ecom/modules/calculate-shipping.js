@@ -168,7 +168,7 @@ exports.post = ({ appSdk }, req, res) => {
           let shippingResult = []
           if (Array.isArray(data) && data.length) {
             shippingResult = [
-              ...data
+              ...data.quotes
             ]
           } else if (typeof data === 'object') {
             shippingResult.push(data)
