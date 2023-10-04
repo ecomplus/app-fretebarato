@@ -52,6 +52,8 @@ exports.post = ({ appSdk }, req, res) => {
     const fields = ['service_name', 'service_code']
     for (let i = 0; i < fields.length; i++) {
       if (service[fields[i]]) {
+        console.log(service[fields[i]])
+        console.log(name)
         return service[fields[i]].trim().toUpperCase() === name.toUpperCase()
       }
     }
