@@ -176,6 +176,7 @@ exports.post = ({ appSdk }, req, res) => {
           let lowestPriceShipping
           shippingResult.forEach(shipping => {
             const { price, name, service, days, quote_id } = shipping
+            console.log('Forma de envio', JSON.stringify(shipping))
             const shippingLine = {
               from: {
                 ...params.from,
@@ -218,6 +219,7 @@ exports.post = ({ appSdk }, req, res) => {
 
             // change label
             let label = name || service
+            console.log('label de envio', label, name, service)
             if (Array.isArray(appData.services) && appData.services.length) {
               const service = appData.services.find(service => {
                 return service && matchService(service, label)
