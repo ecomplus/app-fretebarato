@@ -223,7 +223,6 @@ const app = {
             service_name: {
               type: 'string',
               title: 'Serviço',
-              default: 'GFL LOGISTICA',
               description: 'Nome oficial do serviço na transportadora'
             },
             label: {

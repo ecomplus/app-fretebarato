@@ -71,7 +71,7 @@ exports.post = ({ appSdk }, req, res) => {
   if (Array.isArray(appData.free_shipping_rules)) {
     for (let i = 0; i < appData.free_shipping_rules.length; i++) {
       const rule = appData.free_shipping_rules[i]
-      if (rule && checkZipCode(rule)) {
+      if (rule && checkZipCode(rule) && (rule.min_amount || (rule.product_ids && rule.product_ids.length))) {
         let hasProduct
         if (Array.isArray(rule.product_ids) && rule.product_ids.length) {
           const isAllProducts = rule.all_product_ids
