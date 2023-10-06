@@ -289,7 +289,6 @@ const app = {
               type: 'boolean',
               title: 'Checar todos os produtos',
               description: 'Se ativo, a regra será disponibilizada apenas se todos os itens do carrinho estiverem na lista de produtos selecionados',
-              default: false
             }
           }
         }
