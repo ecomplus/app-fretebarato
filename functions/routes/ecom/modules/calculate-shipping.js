@@ -145,6 +145,7 @@ exports.post = ({ appSdk }, req, res) => {
       amount: cartSubtotal || params.subtotal,
       skus
     }
+    console.log('JSON calculation', JSON.stringify(body))
     return axios.post(
       `https://target.fretebarato.com/ecomplus/price/v1/json/${client_id}`,
       body,
@@ -245,7 +246,7 @@ exports.post = ({ appSdk }, req, res) => {
 
           res.send(response)
         } else {
-          // console.log(data)
+          console.log(data)
           const err = new Error('Invalid frete barato calculate response')
           err.response = { data, status }
           throw err
@@ -266,7 +267,7 @@ exports.post = ({ appSdk }, req, res) => {
           } else {
             result = data
           }
-          console.log('> Frete barato invalid result:', data)
+          console.log('> Frete barato invalid result:', JSON.stringify(data))
           if (result && result.data) {
             // Frete barato error message
             return res.status(409).send({
