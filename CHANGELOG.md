@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.0.0 (2024-01-11)
+
+
+### Features
+
+* **calculate-shipping:** add option to use bigger box in calc ([e6740cc](https://github.com/ecomplus/application-starter/commit/e6740cc183f7e70e5c97067b2f7d50a1ef90f2b4))
+* **calculate-shipping:** finish calculate with frete barato ([5f860c7](https://github.com/ecomplus/application-starter/commit/5f860c717196156664093e851ab6b4b6e24b0ff2))
+* **ecom-config:** insert posting deadline and origin ([03df027](https://github.com/ecomplus/application-starter/commit/03df027bf5f698c516a19f5786a6125266ee4b32))
+* **ecom-config:** set application config ([dda466b](https://github.com/ecomplus/application-starter/commit/dda466b4a65238aee9d67c29c12454ab81f351d2))
+* **ecom-config:** set option to use bigger box instead mult products ([b516626](https://github.com/ecomplus/application-starter/commit/b5166262539a86d905acf5889ae0a6dd93d9d7a9))
+
+
+### Bug Fixes
+
+* **calculate-shipping:** send properly body to calculate ([add2f0e](https://github.com/ecomplus/application-starter/commit/add2f0e92c8aebfb91eceaf260af305d2b7ad234))
+* **calculate-shipping:** send quote properly as spread operator ([0376444](https://github.com/ecomplus/application-starter/commit/03764441ad48ae4ed96976ebd5491bd7aebf25b2))
+* **calculate-shipping:** send quotes to shipping result ([f722d60](https://github.com/ecomplus/application-starter/commit/f722d60decbfcdaad763c39216baf852386e6e26))
+
 ## [1.0.0-starter.26](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.25...v1.0.0-starter.26) (2022-02-24)
 
 ## [1.0.0-starter.25](https://github.com/ecomplus/application-starter/compare/v1.0.0-starter.24...v1.0.0-starter.25) (2022-02-24)
