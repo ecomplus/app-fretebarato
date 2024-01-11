@@ -94,7 +94,9 @@ exports.post = ({ appSdk }, req, res) => {
 
   if (params.items) {
     let cartSubtotal = 0
-    const skus = []
+    let skus = []
+    let cmDimensionsBiggerBox = {}
+    let kgWeightBiggerBox = 0
     params.items.forEach((item) => {
       const { sku, quantity, dimensions, weight } = item
       cartSubtotal += (quantity * ecomUtils.price(item))
@@ -112,6 +114,9 @@ exports.post = ({ appSdk }, req, res) => {
             kgWeight = weight.value
         }
       }
+      if (appData.use_bigger_box) {
+        kgWeightBiggerBox += kgWeight
+      }
       const cmDimensions = {}
       if (dimensions) {
         for (const side in dimensions) {
@@ -127,6 +132,11 @@ exports.post = ({ appSdk }, req, res) => {
               default:
                 cmDimensions[side] = dimension.value
             }
+            if (appData.use_bigger_box) {
+              if (!cmDimensionsBiggerBox[side] || cmDimensionsBiggerBox[side] < cmDimensions[side]) {
+                cmDimensionsBiggerBox[side] = cmDimensions[side]
+              }
+            }
           }
         }
       }
@@ -140,6 +150,18 @@ exports.post = ({ appSdk }, req, res) => {
         weight: kgWeight  
       })
     })
+
+    if (appData.use_bigger_box) {
+      skus = [{
+        sku: 'package',
+        price: cartSubtotal,
+        quantity: 1,
+        height: cmDimensionsBiggerBox.height || 1,
+        width: cmDimensionsBiggerBox.width || 1,
+        length: cmDimensionsBiggerBox.length || 1,
+        weight: kgWeightBiggerBox
+      }]
+    }
     const body = {
       zipcode: destinationZip,
       amount: cartSubtotal || params.subtotal,
