@@ -168,6 +168,15 @@ const app = {
       },
       hide: true
     },
+    use_bigger_box: {
+      schema: {
+        type: 'boolean',
+        default: false,
+        title: 'Calcular considerando apenas uma caixa',
+        description: 'Se selecionado as dimensões não serão somadas e será considerado o maior valor de cada dimensão entre os itens'
+      },
+      hide: false
+    },
     posting_deadline: {
       schema: {
         title: 'Prazo de postagem',
