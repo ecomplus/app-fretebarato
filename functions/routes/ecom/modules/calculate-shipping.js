@@ -169,7 +169,7 @@ exports.post = ({ appSdk }, req, res) => {
     }
     // console.log('JSON calculation', JSON.stringify(body))
     return axios.post(
-      `https://target.fretebarato.com/ecomplus/price/v1/json/${client_id}`,
+      `https://admin.fretebarato.com/ecomplus/price/v1/json/${client_id}`,
       body,
       {
         headers: {
