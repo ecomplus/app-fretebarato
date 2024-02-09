@@ -167,7 +167,7 @@ exports.post = ({ appSdk }, req, res) => {
       amount: cartSubtotal || params.subtotal,
       skus
     }
-    // console.log('JSON calculation', JSON.stringify(body))
+    console.log('JSON calculation', JSON.stringify(body))
     return axios.post(
       `https://admin.fretebarato.com/ecomplus/price/v1/json/${client_id}`,
       body,
